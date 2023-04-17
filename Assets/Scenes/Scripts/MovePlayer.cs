@@ -20,7 +20,7 @@ using UnityEngine;
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        PlayerAnimatorController = GetComponent<Animator>();
+        PlayerAnimatorController = GetComponent<Animator>(); // hola este es un comentari
         
 
     }
