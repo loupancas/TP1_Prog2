@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{4478701A-E662-C3F3-3C5F-66DC3754342A}</ProjectGuid>
+    <ProjectGuid>{1ADA9401-94AB-0574-4965-46A0B613420F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scenes\Scripts\MoveEnemy.cs" />
     <Compile Include="Assets\Scenes\Scripts\Life_Sensor_Enemy.cs" />
     <Compile Include="Assets\Scenes\Scripts\CameraPlayer.cs" />
+    <Compile Include="Assets\Scenes\Scripts\Platform_movement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
