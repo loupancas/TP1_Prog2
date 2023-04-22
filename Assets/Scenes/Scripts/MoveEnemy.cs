@@ -21,20 +21,14 @@ public class MoveEnemy : MonoBehaviour
 
     private void Start()
     {
-
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         target = GameObject.Find("Player");
-
-
-
     }
 
     private void Update()
     {
         Move_Enemy();
-        
-
     }
     public void Move_Enemy()
     {
@@ -53,7 +47,7 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        animator.SetBool("Walk", false);
+                        animator.SetBool("walk", false);
                         break;
                     
                     case 1:
@@ -67,7 +61,7 @@ public class MoveEnemy : MonoBehaviour
                         agent.enabled = true;
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
                         transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                        animator.SetBool("Walk", true);
+                        animator.SetBool("walk", true);
                         break;
 
 
@@ -85,7 +79,7 @@ public class MoveEnemy : MonoBehaviour
 
                 if (Vector3.Distance(transform.position, target.transform.position) > distAtack && !atack)
                 {
-                    animator.SetBool("Walk", false);
+                    animator.SetBool("walk", false);
                     animator.SetBool("run", true);
 
                 }
@@ -95,16 +89,12 @@ public class MoveEnemy : MonoBehaviour
                     {
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
 
-                        animator.SetBool("Walk", false);
+                        animator.SetBool("walk", false);
                         //animator.SetBool("run", false);
                     }
 
 
                 }
-
-
-
-
             }
 
             if (atack) 

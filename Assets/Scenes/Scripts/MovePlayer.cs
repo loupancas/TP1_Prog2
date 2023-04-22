@@ -28,8 +28,8 @@ using UnityEngine;
     {
         xAxis = Input.GetAxis("Horizontal");
         zAxis = Input.GetAxis("Vertical");
-        PlayerAnimatorController.SetFloat("MoveZ",zAxis);
-        PlayerAnimatorController.SetFloat("Move", xAxis);
+        PlayerAnimatorController.SetFloat("horizontal", xAxis);
+        PlayerAnimatorController.SetFloat("vertical", zAxis);
 
         
     }
@@ -39,8 +39,6 @@ using UnityEngine;
         if (xAxis != 0 || zAxis != 0) 
         {
             Move(xAxis, zAxis);
-           
-
         }
        
 
