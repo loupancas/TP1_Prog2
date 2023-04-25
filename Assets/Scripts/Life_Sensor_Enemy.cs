@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Life_Sensor_Enemy : MonoBehaviour
 {
-    public float life;
+    /*public float life;
     public int damage;
     public Image MyBar;
     public int Max;
@@ -18,7 +18,7 @@ public class Life_Sensor_Enemy : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-       Atack_Player Atack = other.GetComponent<Atack_Player>();
+        McAttack Atack = other.GetComponent<McAttack>();
        
         
         
@@ -45,7 +45,7 @@ public class Life_Sensor_Enemy : MonoBehaviour
         Destroy(gameObject);
 
 
-    }
+    }*/
 
     
 }
