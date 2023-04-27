@@ -47,7 +47,7 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        animator.SetBool("walk", false);
+                        animator.SetBool("idle", false);
                         break;
                     
                     case 1:
