@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3173926761003642164}
   - component: {fileID: 8432887550792875373}
   - component: {fileID: 3719116896340488969}
+  - component: {fileID: 6599971774732332120}
   m_Layer: 0
   m_Name: Robert
   m_TagString: Untagged
@@ -64,6 +65,23 @@ CapsuleCollider:
   m_Height: 1.8005569
   m_Direction: 1
   m_Center: {x: 0, y: 0.8281586, z: -0.035027657}
+--- !u!114 &6599971774732332120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7243145025676799369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 589ad7d9c43c16141a31890f6ec2d961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rutine: 0
+  timer: 0
+  ani: {fileID: 850077260813335729}
+  ang: {x: 0, y: 0, z: 0, w: 0}
+  grav: 0
 --- !u!1001 &4813386273848080095
 PrefabInstance:
   m_ObjectHideFlags: 0
