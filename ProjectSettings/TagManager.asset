@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Floor
   - Waypoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
