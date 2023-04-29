@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class McMovement : MonoBehaviour
 {
-    public ParticleSystem dust;
 
     private Rigidbody myRig;
     private float yVelocity;
@@ -21,9 +20,9 @@ public class McMovement : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    private void Update()
+    public void TakeDamage(int damage)
     {
-        dust.transform.position = playerTransform.position;
+        print("El personaje recibio: " + damage);
     }
 
     private void FixedUpdate()
@@ -39,24 +38,6 @@ public class McMovement : MonoBehaviour
             // Apply movement velocity only on the x and z axes
             Vector3 horizontalMove = moveDirection * speed * Time.deltaTime;
             myRig.velocity = new Vector3(horizontalMove.x, myRig.velocity.y, horizontalMove.z);
-
-            // check if the player is moving and on the ground
-            if (moveDirection.magnitude > 0)
-            {
-                // play the particle system
-                if (!dust.isPlaying)
-                {
-                    dust.Play();
-                }
-            }
-            else
-            {
-                // stop the particle system
-                if (dust.isPlaying)
-                {
-                    dust.Stop();
-                }
-            }
         }
         else // If the player is in the air
         {

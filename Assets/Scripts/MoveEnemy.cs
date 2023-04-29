@@ -11,7 +11,7 @@ public class MoveEnemy : MonoBehaviour
     public float speed;
     public float cron;
     public float grado;
-    public GameObject target;
+    GameObject target;
     private NavMeshAgent agent;
     public Quaternion angle;
     public Animator animator;
@@ -24,6 +24,7 @@ public class MoveEnemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponentInChildren<Animator>();
         target = GameObject.Find("Player");
+      // target = GameManager.GetPlayer(); //crean un manager singleton para hacer esto
     }
 
     private void Update()
@@ -47,7 +48,7 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        animator.SetBool("idle", false);
+                        //animator.SetBool("idle", false);
                         break;
                     
                     case 1:
