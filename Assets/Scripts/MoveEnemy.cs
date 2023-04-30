@@ -22,9 +22,9 @@ public class MoveEnemy : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
         target = GameObject.Find("Player");
-      // target = GameManager.GetPlayer(); //crean un manager singleton para hacer esto
+        //target = GameManager.GetPlayer(); //crean un manager singleton para hacer esto
     }
 
     private void Update()
@@ -48,14 +48,14 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        //animator.SetBool("idle", false);
+                        animator.SetBool("idel", false);
                         break;
                     
                     case 1:
                         grado = Random.Range(0, 360);
                         angle = Quaternion.Euler(0, grado, 0);
                        
-                        //rutina++;
+                        rutina++;
                         break;
                     
                     case 2:
@@ -91,7 +91,7 @@ public class MoveEnemy : MonoBehaviour
                         transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
 
                         animator.SetBool("walk", false);
-                        //animator.SetBool("run", false);
+                        animator.SetBool("run", false);
                     }
 
 
