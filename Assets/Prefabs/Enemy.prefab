@@ -54,7 +54,7 @@ MonoBehaviour:
   cron: 0
   grado: 0
   angle: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 2944513476184231700}
+  animator: {fileID: 0}
   radioView: 6
   distAtack: 1
   atack: 0
@@ -233,13 +233,34 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d64727a62b83fcc48a4516a6a185c0eb, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5866666021909216657, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
---- !u!95 &2944513476184231700 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
+--- !u!1 &8464233062451007444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
   m_PrefabInstance: {fileID: 8770644611162927749}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &2635536839163254453
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8464233062451007444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
+  m_Controller: {fileID: 9100000, guid: d64727a62b83fcc48a4516a6a185c0eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &9096479270035920238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}

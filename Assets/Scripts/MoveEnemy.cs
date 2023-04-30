@@ -18,6 +18,7 @@ public class MoveEnemy : MonoBehaviour
     public float radioView;
     public float distAtack;
     public bool atack;
+    
 
     private void Start()
     {
@@ -48,7 +49,7 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        animator.SetBool("idel", false);
+                        //animator.SetBool("idel", false);
                         break;
                     
                     case 1:
