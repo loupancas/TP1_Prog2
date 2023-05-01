@@ -11,8 +11,8 @@ public class MoveEnemy : MonoBehaviour
     public float speed;
     public float cron;
     public float grado;
-    GameObject target;
-    private NavMeshAgent agent;
+    public GameObject target;
+    public NavMeshAgent agent;
     public Quaternion angle;
     public Animator animator;
     public float radioView;
@@ -23,7 +23,6 @@ public class MoveEnemy : MonoBehaviour
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
         target = GameObject.Find("Player");
         //target = GameManager.GetPlayer(); //crean un manager singleton para hacer esto
     }
@@ -49,7 +48,7 @@ public class MoveEnemy : MonoBehaviour
                 {
                     case 0:
                         agent.enabled = false;
-                        //animator.SetBool("idel", false);
+                        animator.SetBool("walk", false);
                         break;
                     
                     case 1:
@@ -70,40 +69,40 @@ public class MoveEnemy : MonoBehaviour
                 }
 
             }
-            else
-            {
-                var lookPos = target.transform.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
+            //else
+            //{
+            //    var lookPos = target.transform.position - transform.position;
+            //    lookPos.y = 0;
+            //    var rotation = Quaternion.LookRotation(lookPos);
 
-                agent.enabled = true;
-                agent.SetDestination(target.transform.position);
+            //    agent.enabled = true;
+            //    agent.SetDestination(target.transform.position);
 
-                if (Vector3.Distance(transform.position, target.transform.position) > distAtack && !atack)
-                {
-                    animator.SetBool("walk", false);
-                    animator.SetBool("run", true);
+            //    if (Vector3.Distance(transform.position, target.transform.position) > distAtack && !atack)
+            //    {
+            //        animator.SetBool("walk", false);
+            //        animator.SetBool("run", true);
 
-                }
-                else
-                {
-                    if (!atack)
-                    {
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
+            //    }
+            //    else
+            //    {
+            //        if (!atack)
+            //        {
+            //            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
 
-                        animator.SetBool("walk", false);
-                        animator.SetBool("run", false);
-                    }
+            //            animator.SetBool("walk", false);
+            //            animator.SetBool("run", false);
+            //        }
 
 
-                }
-            }
+            //    }
+            //}
 
-            if (atack) 
-            { 
-              agent.enabled = false;
+            //if (atack) 
+            //{ 
+            //  agent.enabled = false;
 
-            }
+            //}
 
         }
 
