@@ -7,107 +7,114 @@ public class MoveEnemy : MonoBehaviour
 {
 
     public int damage;
-    public int rutina;
-    public float speed;
-    public float cron;
-    public float grado;
-    public GameObject target;
     public NavMeshAgent agent;
-    public Quaternion angle;
-    public Animator animator;
+    private Rigidbody rb;
+    private Transform ActualWaypoint;
+    public float grado;
+
+    [Header("Distance")]
+    [SerializeField] private float distToCheck;
+    [Header("AI")] public List<Transform> Nods = new List<Transform>(); 
+   
+    public float speed;
     public float radioView;
     public float distAtack;
-    public bool atack;
+    
+    
+    public Animator animator;
+    public LayerMask PlayerCape;
+    public Quaternion angle;
+
+  
+    bool PlayerDetection;
+    
     
 
     private void Start()
     {
+        
         agent = GetComponent<NavMeshAgent>();
-        target = GameObject.Find("Player");
-        //target = GameManager.GetPlayer(); //crean un manager singleton para hacer esto
+
+        ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
+        agent.SetDestination(ActualWaypoint.position);
+        rb = GetComponent<Rigidbody>();
+
     }
 
     private void Update()
     {
-        Move_Enemy();
-    }
-    public void Move_Enemy()
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) > radioView)
+        animator.SetBool("run", false);
+        PlayerDetection = Physics.CheckSphere(transform.position, radioView, PlayerCape);
+        
+        if(PlayerDetection == true) 
+        { 
+             Vector3 PlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+             transform.LookAt(PlayerPosition);
+             
+            animator.SetBool("run", true);
+            transform.position = Vector3.MoveTowards(transform.position, PlayerPosition, speed * Time.deltaTime);
+             
+         
+        }
+        else
         {
-            agent.enabled = false;
-            animator.SetBool("run", false);
-            cron += 1 * Time.deltaTime;
-            
 
-            if (cron >= 4)
+            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+            animator.SetBool("walk", true);
+
+            if (disToWaypoint <= distToCheck)
             {
-                rutina = Random.Range(0, 3);
 
-                switch (rutina)
-                {
-                    case 0:
-                        agent.enabled = false;
-                        animator.SetBool("walk", false);
-                        break;
-                    
-                    case 1:
-                        grado = Random.Range(0, 360);
-                        angle = Quaternion.Euler(0, grado, 0);
-                       
-                        rutina++;
-                        break;
-                    
-                    case 2:
-                        agent.enabled = true;
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
-                        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                        animator.SetBool("walk", true);
-                        break;
+                print($"check{ActualWaypoint.name}.");
+                agent.SetDestination(ActualWaypoint.position);
+                //Move_Enemy(ActualWaypoint);
 
-
-                }
+            
+             
+            
+                
+            }
+            if (ActualWaypoint == true) 
+            {
+                var NewNod = Nods[Random.Range(0, Nods.Count)];
 
             }
-            //else
-            //{
-            //    var lookPos = target.transform.position - transform.position;
-            //    lookPos.y = 0;
-            //    var rotation = Quaternion.LookRotation(lookPos);
-
-            //    agent.enabled = true;
-            //    agent.SetDestination(target.transform.position);
-
-            //    if (Vector3.Distance(transform.position, target.transform.position) > distAtack && !atack)
-            //    {
-            //        animator.SetBool("walk", false);
-            //        animator.SetBool("run", true);
-
-            //    }
-            //    else
-            //    {
-            //        if (!atack)
-            //        {
-            //            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
-
-            //            animator.SetBool("walk", false);
-            //            animator.SetBool("run", false);
-            //        }
 
 
-            //    }
-            //}
-
-            //if (atack) 
-            //{ 
-            //  agent.enabled = false;
-
-            //}
 
         }
 
 
+
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radioView);
+    }
+    //public void Move_Enemy(Transform actualWaypoint)
+    //{
+
+        
+
+        
+
+    //    grado = Random.Range(0, 360);
+    //    angle = Quaternion.Euler(0, grado, 0);
+
+    //    if (NewNod == actualWaypoint)
+    //    {
+    //        Move_Enemy(actualWaypoint);
+
+    //    }
+    //    else 
+    //    {
+    //        actualWaypoint = NewNod;
+
+    //    } 
+
+
+    //}
 
 
 }

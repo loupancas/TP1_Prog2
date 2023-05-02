@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1525728441131805332}
   - component: {fileID: 4729503701101776005}
-  - component: {fileID: 5188214602489108521}
-  - component: {fileID: 6419793397580847739}
+  - component: {fileID: 5690377984660109805}
   - component: {fileID: 1574040413985267513}
+  - component: {fileID: 981243399413078037}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -49,40 +49,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  rutina: 0
-  speed: 1
-  cron: 0
-  grado: 0
-  target: {fileID: 7617756336950757250, guid: da502b1b6da7f2540a451a76fba71c90, type: 3}
-  agent: {fileID: 5188214602489108521}
-  angle: {x: 0, y: 0, z: 0, w: 0}
-  animator: {fileID: 0}
-  radioView: 7
+  agent: {fileID: 981243399413078037}
+  distToCheck: 1
+  Nods:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  speed: 2
+  radioView: 5
   distAtack: 1
-  atack: 0
---- !u!195 &5188214602489108521
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1229846118287316187}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.4
-  m_Speed: 2
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 1.9
-  m_BaseOffset: -0.03
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
---- !u!54 &6419793397580847739
+  animator: {fileID: 2944513476184231700}
+  PlayerCape:
+    serializedVersion: 2
+    m_Bits: 64
+  angle: {x: 0, y: 0, z: 0, w: 0}
+--- !u!54 &5690377984660109805
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -90,8 +72,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1229846118287316187}
   serializedVersion: 2
-  m_Mass: 3
-  m_Drag: 1
+  m_Mass: 1
+  m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -112,6 +94,28 @@ CapsuleCollider:
   m_Height: 1.8950052
   m_Direction: 1
   m_Center: {x: -0.0033901334, y: 0.9289069, z: 0}
+--- !u!195 &981243399413078037
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1229846118287316187}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.46
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.85
+  m_BaseOffset: -0.01
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7350159137518066845
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,12 +239,13 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d64727a62b83fcc48a4516a6a185c0eb, type: 2}
-    - target: {fileID: 5866666021909216657, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
-      propertyPath: m_CullingMode
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
+--- !u!95 &2944513476184231700 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
+  m_PrefabInstance: {fileID: 8770644611162927749}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9096479270035920238 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
