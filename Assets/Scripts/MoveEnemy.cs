@@ -8,9 +8,10 @@ public class MoveEnemy : MonoBehaviour
 
     public int damage;
     public NavMeshAgent agent;
-    private Rigidbody rb;
+    //private Rigidbody rb;
     private Transform ActualWaypoint;
     public float grado;
+    private Transform FollowingWaypoint;
 
     [Header("Distance")]
     [SerializeField] private float distToCheck;
@@ -37,7 +38,8 @@ public class MoveEnemy : MonoBehaviour
 
         ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
         agent.SetDestination(ActualWaypoint.position);
-        rb = GetComponent<Rigidbody>();
+        //rb = GetComponent<Rigidbody>();
+        
 
     }
 
@@ -47,7 +49,8 @@ public class MoveEnemy : MonoBehaviour
         PlayerDetection = Physics.CheckSphere(transform.position, radioView, PlayerCape);
         
         if(PlayerDetection == true) 
-        { 
+        {
+            
              Vector3 PlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
              transform.LookAt(PlayerPosition);
              
@@ -59,26 +62,24 @@ public class MoveEnemy : MonoBehaviour
         else
         {
 
-            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+            var disToWaypoint = Vector3.Distance(FollowingWaypoint.position, transform.position);
+            //agent.enabled = true;
             animator.SetBool("walk", true);
 
             if (disToWaypoint <= distToCheck)
             {
 
-                print($"check{ActualWaypoint.name}.");
                 agent.SetDestination(ActualWaypoint.position);
-                //Move_Enemy(ActualWaypoint);
+                print($"check{ActualWaypoint.name}.");
+                
+                
 
             
              
             
                 
             }
-            if (ActualWaypoint == true) 
-            {
-                var NewNod = Nods[Random.Range(0, Nods.Count)];
-
-            }
+            
 
 
 
@@ -92,29 +93,7 @@ public class MoveEnemy : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, radioView);
     }
-    //public void Move_Enemy(Transform actualWaypoint)
-    //{
-
-        
-
-        
-
-    //    grado = Random.Range(0, 360);
-    //    angle = Quaternion.Euler(0, grado, 0);
-
-    //    if (NewNod == actualWaypoint)
-    //    {
-    //        Move_Enemy(actualWaypoint);
-
-    //    }
-    //    else 
-    //    {
-    //        actualWaypoint = NewNod;
-
-    //    } 
-
-
-    //}
+   
 
 
 }
