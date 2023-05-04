@@ -62,17 +62,16 @@ public class MoveEnemy : MonoBehaviour
         else
         {
 
-            var disToWaypoint = Vector3.Distance(FollowingWaypoint.position, transform.position);
+            //var disToWaypoint = Vector3.Distance(FollowingWaypoint.position, transform.position);
             //agent.enabled = true;
-            animator.SetBool("walk", true);
+            //animator.SetBool("walk", true);
 
-            if (disToWaypoint <= distToCheck)
+           // if (disToWaypoint <= distToCheck)
             {
 
-                agent.SetDestination(ActualWaypoint.position);
-                print($"check{ActualWaypoint.name}.");
-                
-                
+                //agent.SetDestination(ActualWaypoint.position);
+               // print($"check{ActualWaypoint.name}.");
+                          
 
             
              
