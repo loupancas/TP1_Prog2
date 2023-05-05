@@ -54,12 +54,23 @@ public class EnemyBomb : MonoBehaviour
                         //objetos pequeños
                         //personaje
 
-                        McMovement player = cols[i].GetComponent<McMovement>();
+                        //McMovement player = cols[i].GetComponent<McMovement>();
 
+                        //if (player != null)
+                        {
+                            //player.TakeDamage(20);
+                            
+                        }
+
+                        Life_Player player= cols[i].GetComponent<Life_Player>();
                         if (player != null)
                         {
-                            player.TakeDamage(20);
+                            player.Dano(20);
+
                         }
+
+
+
                     }
 
                     GameObject.Instantiate(explosionparticle,transform.position, Quaternion.identity);

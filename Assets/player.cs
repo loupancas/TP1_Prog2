@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class player : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    List<int> llaves = new List<int>();
+    public McMovement movement;//referencia al movimiento 
+    public void obtieneLlave(int clave)
     {
-        
+
+        llaves.Add(clave);
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public bool tieneLlave(int clave) // pregunta si tiene llave
     {
-        
+        if (llaves.Contains(clave))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

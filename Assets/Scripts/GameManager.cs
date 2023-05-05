@@ -24,4 +24,7 @@ public class GameManager : MonoBehaviour
         return player != null;
     }
     public player player;
+
+    
+
 }

@@ -20,10 +20,7 @@ public class McMovement : MonoBehaviour
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    public void TakeDamage(int damage)
-    {
-        print("El personaje recibio: " + damage);
-    }
+    
 
     private void FixedUpdate()
     {
