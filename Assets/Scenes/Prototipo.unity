@@ -722,7 +722,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 348957420}
-  m_LocalRotation: {x: 0.21112844, y: -0.000000016818522, z: 0.000000003632756, w: 0.97745836}
+  m_LocalRotation: {x: 0.21112844, y: 0.000000016818522, z: -0.000000003632756, w: 0.97745836}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2975,7 +2975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.88937306}
   m_AnchorMax: {x: 0.12144196, y: 1}
-  m_AnchoredPosition: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0.9999695}
   m_SizeDelta: {x: -7, y: 57}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1370397715
@@ -4511,6 +4511,14 @@ PrefabInstance:
       propertyPath: Nods.Array.data[3]
       value: 
       objectReference: {fileID: 346071370}
+    - target: {fileID: 5690377984660109805, guid: 7d515101915c5f145a40373ab2b50848, type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5690377984660109805, guid: 7d515101915c5f145a40373ab2b50848, type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d515101915c5f145a40373ab2b50848, type: 3}
 --- !u!4 &827515045053609791 stripped

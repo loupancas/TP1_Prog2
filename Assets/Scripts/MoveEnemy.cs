@@ -51,11 +51,12 @@ public class MoveEnemy : MonoBehaviour
         if(PlayerDetection == true) 
         {
             
-             Vector3 PlayerPosition = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-             transform.LookAt(PlayerPosition);
+             
+
+            transform.LookAt(GameManager.instance.player.transform.position);
              
             animator.SetBool("run", true);
-            transform.position = Vector3.MoveTowards(transform.position, PlayerPosition, speed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, speed * Time.deltaTime);
              
          
         }
