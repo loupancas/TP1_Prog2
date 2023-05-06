@@ -8,7 +8,7 @@ public class MoveEnemy : MonoBehaviour
 
     public int damage;
     public NavMeshAgent agent;
-    //private Rigidbody rb;
+   
     private Transform ActualWaypoint;
     public float grado;
     private Transform FollowingWaypoint;
@@ -37,9 +37,9 @@ public class MoveEnemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
+
         agent.SetDestination(ActualWaypoint.position);
-        //rb = GetComponent<Rigidbody>();
-        
+
 
     }
 
@@ -63,23 +63,24 @@ public class MoveEnemy : MonoBehaviour
         else
         {
 
-            //var disToWaypoint = Vector3.Distance(FollowingWaypoint.position, transform.position);
-            //agent.enabled = true;
-            //animator.SetBool("walk", true);
+            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+            agent.enabled = true;
+            animator.SetBool("walk", true);
 
-           // if (disToWaypoint <= distToCheck)
+            if (disToWaypoint <= distToCheck)
             {
 
-                //agent.SetDestination(ActualWaypoint.position);
-               // print($"check{ActualWaypoint.name}.");
-                          
 
-            
-             
-            
-                
+                agent.SetDestination(ActualWaypoint.position);
+                print($"check{ActualWaypoint.name}.");
+
+
+
+
+
+
             }
-            
+
 
 
 
