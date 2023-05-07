@@ -17,12 +17,19 @@ public class GameManager : MonoBehaviour
             instance = this; // corona al primero que aparece
         }
 
+        player = FindObjectOfType<player>();
 
     }
     public bool playerExist()
     {
         return player != null;
     }
+
+    public player GetPlayer()
+    {
+        return player;
+    }
+
     public player player;
 
     
