@@ -7,106 +7,94 @@ public class MoveEnemy : MonoBehaviour
 {
 
     public int damage;
-    public int rutina;
-    public float speed;
-    public float cron;
+    public NavMeshAgent agent;
+   
+    private Transform ActualWaypoint;
     public float grado;
-    public GameObject target;
-    private NavMeshAgent agent;
-    public Quaternion angle;
-    public Animator animator;
+    private Transform FollowingWaypoint;
+
+    [Header("Distance")]
+    [SerializeField] private float distToCheck;
+    [Header("AI")] public List<Transform> Nods = new List<Transform>(); 
+   
+    public float speed;
     public float radioView;
     public float distAtack;
-    public bool atack;
+    
+    
+    public Animator animator;
+    public LayerMask PlayerCape;
+    public Quaternion angle;
+
+  
+    bool PlayerDetection;
+    
+    
 
     private void Start()
     {
+        
         agent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
-        target = GameObject.Find("Player");
+
+        ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
+
+        agent.SetDestination(ActualWaypoint.position);
+
+
     }
 
     private void Update()
     {
-        Move_Enemy();
-    }
-    public void Move_Enemy()
-    {
-        if (Vector3.Distance(transform.position, target.transform.position) > radioView)
+        animator.SetBool("run", false);
+        PlayerDetection = Physics.CheckSphere(transform.position, radioView, PlayerCape);
+        
+        if(PlayerDetection == true) 
         {
-            agent.enabled = false;
-            animator.SetBool("run", false);
-            cron += 1 * Time.deltaTime;
             
+             
 
-            if (cron >= 4)
+            transform.LookAt(GameManager.instance.player.transform.position);
+             
+            animator.SetBool("run", true);
+            transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, speed * Time.deltaTime);
+             
+         
+        }
+        else
+        {
+
+            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+            agent.enabled = true;
+            animator.SetBool("walk", true);
+
+            if (disToWaypoint <= distToCheck)
             {
-                rutina = Random.Range(0, 3);
-
-                switch (rutina)
-                {
-                    case 0:
-                        agent.enabled = false;
-                        animator.SetBool("idle", false);
-                        break;
-                    
-                    case 1:
-                        grado = Random.Range(0, 360);
-                        angle = Quaternion.Euler(0, grado, 0);
-                       
-                        //rutina++;
-                        break;
-                    
-                    case 2:
-                        agent.enabled = true;
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, angle, 0.5f);
-                        transform.Translate(Vector3.forward * speed * Time.deltaTime);
-                        animator.SetBool("walk", true);
-                        break;
 
 
-                }
+                agent.SetDestination(ActualWaypoint.position);
+                print($"check{ActualWaypoint.name}.");
+
+
+
+
+
 
             }
-            else
-            {
-                var lookPos = target.transform.position - transform.position;
-                lookPos.y = 0;
-                var rotation = Quaternion.LookRotation(lookPos);
-
-                agent.enabled = true;
-                agent.SetDestination(target.transform.position);
-
-                if (Vector3.Distance(transform.position, target.transform.position) > distAtack && !atack)
-                {
-                    animator.SetBool("walk", false);
-                    animator.SetBool("run", true);
-
-                }
-                else
-                {
-                    if (!atack)
-                    {
-                        transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 1f);
-
-                        animator.SetBool("walk", false);
-                        //animator.SetBool("run", false);
-                    }
 
 
-                }
-            }
 
-            if (atack) 
-            { 
-              agent.enabled = false;
-
-            }
 
         }
 
 
+
     }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, radioView);
+    }
+   
 
 
 }

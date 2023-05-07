@@ -17,18 +17,20 @@ public class McSalto : MonoBehaviour
 
     void Awake()
     {
+        jumpsLeft = 2;
         myRig = GetComponent<Rigidbody>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && onFloor)
         {
+
             if (onFloor)
             {
                 myRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                onFloor = false;
+                
                 jumpsLeft = 2;
                 inicioParticles.transform.position = playerTransform.position;
                 inicioParticles.Play();
@@ -63,6 +65,13 @@ public class McSalto : MonoBehaviour
             jumpsLeft = 2;
             dustJump.transform.position = playerTransform.position;
             dustJump.Play();
+        }
+    }
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            onFloor = false;
         }
     }
 }
