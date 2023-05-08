@@ -5,42 +5,72 @@ using UnityEngine;
 public class McMovement : MonoBehaviour
 {
 
-    private Rigidbody myRig;
-    private float yVelocity;
-    public float speed = 200f;
+    public float moveSpeed = 5f;
+   public float jumpForce = 7f;
+    public GameObject floor; 
+    public CharacterController controller;
+    public float turnSmoothTime = 0.1f;
+    float turnSmoothVelocity;
+    public Transform cam; 
 
-    private JumpNoAsignado jumpy;
+    public float gravity=-9.81f;
+    //public float gravityJump=-7f;
 
-    private Transform playerTransform;
+    public Transform groundCheck;
+    public float sphereRadius=0.3f;
+    public LayerMask groundMask;
+    bool isGrounded;
+   public float jumpHeight = 1.5f;
 
-    private void Awake()
-    {
-        myRig = GetComponent<Rigidbody>();
-        jumpy = GetComponent<JumpNoAsignado>();
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+
+    Vector3 velocity;
+
+    [SerializeField] private ParticleSystem particulas;
+
+    void Start(){
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
-
-    
-
-    private void FixedUpdate()
+    void Update()
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
+        
+        isGrounded = Physics.CheckSphere(groundCheck.position,sphereRadius,groundMask);
 
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput).normalized;
+        if(isGrounded && velocity.y < 0){
 
-        // Check if the player is on the ground
-        if (jumpy.onFloor)
-        {
-            // Apply movement velocity only on the x and z axes
-            Vector3 horizontalMove = moveDirection * speed * Time.deltaTime;
-            myRig.velocity = new Vector3(horizontalMove.x, myRig.velocity.y, horizontalMove.z);
+            velocity.y = -2f;
+
         }
-        else // If the player is in the air
-        {
-            // Apply movement velocity in the direction the player is facing
-            Vector3 forwardMove = transform.forward * speed * Time.deltaTime;
-            myRig.velocity = new Vector3(forwardMove.x, myRig.velocity.y, forwardMove.z);
+
+
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+
+        Vector3 movement = new Vector3(horizontal, 0f, vertical).normalized;
+        transform.Translate(movement * moveSpeed * Time.deltaTime);
+
+       if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
+
+            velocity.y = Mathf.Sqrt(jumpHeight * -1.8f * gravity);
+            particulas.Play();
         }
-    }
+        velocity.y += gravity*Time.deltaTime;
+        controller.Move(velocity*Time.deltaTime);
+
+       
+        if(movement.magnitude >= 0.1f){
+            
+            float targetAngle = Mathf.Atan2(movement.x, movement.z)* Mathf.Rad2Deg + cam.eulerAngles.y;
+            float angle= Mathf.SmoothDampAngle(transform.eulerAngles.y,targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            Vector3 moveDir = Quaternion.Euler(0f,targetAngle,0f) * Vector3.forward;
+            transform.rotation = Quaternion.Euler(0f,angle,0f);
+            controller.Move(moveDir.normalized*moveSpeed*Time.deltaTime); //hola
+            
+        }
+
+
+
+
+}
 }

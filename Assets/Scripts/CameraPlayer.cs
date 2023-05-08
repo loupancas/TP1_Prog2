@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class CameraPlayer : MonoBehaviour
 {
-    public Vector3 offset;
-    private Transform Target;
-   [Range(0, 1)]public float lerpValue;
+    [SerializeField] Transform target;
+    Vector3 offset;
 
-    public void Start()
+    private void Start()
     {
-        Target = GameObject.Find("Player").transform;
+        offset = transform.position - target.position;
     }
-    public void LateUpdate()
+
+    private void fixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, Target.position + offset, lerpValue);
-        transform.LookAt(Target);
+        transform.position = target.transform.position + offset; // posicion la camara donde esta el pj + el offset
     }
 }
