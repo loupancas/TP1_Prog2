@@ -50,8 +50,8 @@ public class MoveEnemy : MonoBehaviour
         
         if(PlayerDetection == true) 
         {
-            
-             
+
+
 
             transform.LookAt(GameManager.instance.player.transform.position);
              
