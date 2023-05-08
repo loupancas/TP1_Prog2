@@ -121,7 +121,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   speed: 2
-  radioView: 7
+  radioView: 10
   distAtack: 1
   animator: {fileID: 5508613282723337071}
   PlayerCape:
