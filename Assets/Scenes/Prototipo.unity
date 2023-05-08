@@ -146,13 +146,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29928646}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.29999924, y: 0.5, z: 10}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 0.29999924, y: 0.5, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1430444946}
-  m_RootOrder: 3
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &77166868
 GameObject:
@@ -312,13 +312,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124986360}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 0.5, z: 15}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -18, y: 0.5, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1430444946}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &160638867
 GameObject:
@@ -1784,7 +1784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.23903725, y: -0.000000033415148, z: 0.000000008225931, w: 0.9710104}
+  m_LocalRotation: {x: 0.23903725, y: 0.000000033415148, z: -0.000000008225931, w: 0.9710104}
   m_LocalPosition: {x: 0, y: 3, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2476,11 +2476,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365070309}
   m_CullTransparentMesh: 1
---- !u!4 &1430444946 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7018267407606136794, guid: 5aa00bffe01b645489bbdab8355c943c, type: 3}
-  m_PrefabInstance: {fileID: 7018267406318593096}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1499522114
 GameObject:
   m_ObjectHideFlags: 3
@@ -2677,7 +2672,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763612574}
-  m_LocalRotation: {x: 0.23903725, y: -0.000000008353788, z: 0.000000002056483, w: 0.9710104}
+  m_LocalRotation: {x: 0.23903725, y: 0.000000008353788, z: -0.000000002056483, w: 0.9710104}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2780,13 +2775,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1802232487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18, y: 0.5, z: 0.2}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: 18, y: 0.5, z: 11.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1430444946}
-  m_RootOrder: 4
+  m_Father: {fileID: 0}
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1835381678
 PrefabInstance:
@@ -3197,13 +3192,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891641154}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18, y: 0.44, z: 0}
+  m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
+  m_LocalPosition: {x: -18, y: 0.44, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1430444946}
-  m_RootOrder: 2
+  m_Father: {fileID: 0}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1956497372
 GameObject:
@@ -4085,6 +4080,10 @@ PrefabInstance:
     - target: {fileID: 5202455753150339701, guid: 5aa00bffe01b645489bbdab8355c943c, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5449345154503018251, guid: 5aa00bffe01b645489bbdab8355c943c, type: 3}
+      propertyPath: radioView
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5449345154503018251, guid: 5aa00bffe01b645489bbdab8355c943c, type: 3}
       propertyPath: Nods.Array.data[0]
