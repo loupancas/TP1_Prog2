@@ -7,6 +7,8 @@ public class MoveEnemy : MonoBehaviour
 {
 
     public int damage;
+    public float cron;
+    public int rutina;
     public NavMeshAgent agent;
    
     private Transform ActualWaypoint;
@@ -15,8 +17,9 @@ public class MoveEnemy : MonoBehaviour
 
     [Header("Distance")]
     [SerializeField] private float distToCheck;
-    [Header("AI")] public List<Transform> Nods = new List<Transform>(); 
-   
+    [Header("AI")] public List<Transform> Nods = new List<Transform>();
+
+    
     public float speed;
     public float radioView;
     public float distAtack;
@@ -38,43 +41,40 @@ public class MoveEnemy : MonoBehaviour
 
         ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
 
-        agent.SetDestination(ActualWaypoint.position);
+        
 
 
     }
 
     private void Update()
     {
+       
         animator.SetBool("run", false);
         PlayerDetection = Physics.CheckSphere(transform.position, radioView, PlayerCape);
-        
-        if(PlayerDetection == true) 
+
+        if (PlayerDetection == true)
         {
 
 
 
             transform.LookAt(GameManager.instance.player.transform.position);
-             
+
             animator.SetBool("run", true);
             transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, speed * Time.deltaTime);
-             
-         
+
+
         }
         else
         {
-
-            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
-            agent.enabled = true;
+            agent.SetDestination(ActualWaypoint.position);
             animator.SetBool("walk", true);
+            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
 
-            if (disToWaypoint <= distToCheck)
+            if (disToWaypoint == distToCheck)
             {
-
-
-                agent.SetDestination(ActualWaypoint.position);
+                
                 print($"check{ActualWaypoint.name}.");
-
-
+                
 
 
 
@@ -85,7 +85,6 @@ public class MoveEnemy : MonoBehaviour
 
 
         }
-
 
 
     }

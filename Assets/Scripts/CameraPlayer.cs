@@ -17,3 +17,4 @@ public class CameraPlayer : MonoBehaviour
         transform.position = target.transform.position + offset; // posicion la camara donde esta el pj + el offset
     }
 }
+//hola
