@@ -7,41 +7,56 @@ public class MoveEnemy : MonoBehaviour
 {
 
     public int damage;
-    public float cron;
-    public int rutina;
+    int CurrentNodsIndex;
     public NavMeshAgent agent;
    
     private Transform ActualWaypoint;
-    public float grado;
-    private Transform FollowingWaypoint;
-
-    [Header("Distance")]
-    [SerializeField] private float distToCheck;
-    [Header("AI")] public List<Transform> Nods = new List<Transform>();
-
     
+    public float ViewAngle = 90;
+    public float StartTime = 4;
+    public float StartTimeRotate = 2; 
     public float speed;
     public float radioView;
     public float distAtack;
-    
-    
+
+    [Header("Distance")]
+    [SerializeField] private float distToCheck;
+    [Header("AI")] public Transform[] Nods;
+
     public Animator animator;
     public LayerMask PlayerCape;
-    public Quaternion angle;
 
-  
+    Vector3 PlayerLastPosition = Vector3.zero;
+    Vector3 PlayerPosition;
+    
+    //bool IsPatrol;
     bool PlayerDetection;
+    //bool PlayerNear;
+    //bool PlayerInRange;
+    //bool CaughtPlayer;
+    //float TimeRotate;
+    //float WaitTime;
     
     
 
     private void Start()
     {
         
-        agent = GetComponent<NavMeshAgent>();
-
-        ActualWaypoint = Nods[Random.Range(0, Nods.Count)];
-
+        PlayerLastPosition = Vector3.zero;
+        //IsPatrol = true;
+        //CaughtPlayer = false;
+        //PlayerInRange = false;
+        //WaitTime = StartTime;
+        //TimeRotate = StartTimeRotate;
         
+        CurrentNodsIndex = 0;
+        agent = GetComponent<NavMeshAgent>();
+        agent.SetDestination(Nods[CurrentNodsIndex].position);
+
+
+
+
+
 
 
     }
@@ -56,7 +71,7 @@ public class MoveEnemy : MonoBehaviour
         {
 
 
-
+            //agent.isStopped = true;    
             transform.LookAt(GameManager.instance.player.transform.position);
 
             animator.SetBool("run", true);
@@ -64,29 +79,20 @@ public class MoveEnemy : MonoBehaviour
 
 
         }
-            agent.SetDestination(ActualWaypoint.position);
-            animator.SetBool("walk", true);
-        //    var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
-        
-        //while(disToWaypoint == distToCheck)
-        //{
-           
 
-        //    if (disToWaypoint == distToCheck)
-        //    {
-                
-        //        print($"check{ActualWaypoint.name}.");
-                
+        animator.SetBool("walk", true);
+        var disToWaypoint = Vector3.Distance(Nods[CurrentNodsIndex].position, transform.position);
+
+        if (disToWaypoint <= distToCheck)
+        {
+
+            NextPoint();
+            print($"check{Nods[CurrentNodsIndex].name}.");
 
 
 
 
-        //    }
-
-
-
-
-        //}
+        }
 
 
     }
@@ -94,6 +100,13 @@ public class MoveEnemy : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(transform.position, radioView);
+    }
+    void NextPoint() 
+    { 
+        CurrentNodsIndex = (CurrentNodsIndex + 1) % Nods.Length;
+        agent.SetDestination(Nods[CurrentNodsIndex].position);
+        animator.SetBool("walk", true);
+
     }
    
 
