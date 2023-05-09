@@ -64,27 +64,29 @@ public class MoveEnemy : MonoBehaviour
 
 
         }
-        else
-        {
             agent.SetDestination(ActualWaypoint.position);
             animator.SetBool("walk", true);
-            var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+        //    var disToWaypoint = Vector3.Distance(ActualWaypoint.position, transform.position);
+        
+        //while(disToWaypoint == distToCheck)
+        //{
+           
 
-            if (disToWaypoint == distToCheck)
-            {
+        //    if (disToWaypoint == distToCheck)
+        //    {
                 
-                print($"check{ActualWaypoint.name}.");
+        //        print($"check{ActualWaypoint.name}.");
                 
 
 
 
 
-            }
+        //    }
 
 
 
 
-        }
+        //}
 
 
     }
