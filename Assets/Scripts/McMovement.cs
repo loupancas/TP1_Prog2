@@ -20,12 +20,20 @@ public class McMovement : MonoBehaviour
     public float sphereRadius=0.3f;
     public LayerMask groundMask;
     bool isGrounded;
-   public float jumpHeight = 1.5f;
-
+    public float jumpHeight = 1.5f;
+    Charview view;
 
     Vector3 velocity;
 
     [SerializeField] private ParticleSystem particulas;
+
+
+    private void Awake()
+    {
+        view = GetComponent<Charview>();
+    }
+
+
 
     void Start(){
 
@@ -69,8 +77,9 @@ public class McMovement : MonoBehaviour
             
         }
 
+        view.horizontal(Input.GetAxis("Horizontal"));
+        view.vertical(Input.GetAxis("Vertical"));
 
 
-
-}
+    }
 }
