@@ -14,7 +14,7 @@ public class EnemyBomb : MonoBehaviour
 
     public float waveExplosionDist = 7f;
 
-    public ParticleSystem explosionparticle;
+    //public ParticleSystem explosionparticle;
     
 
     bool jumping = false;
@@ -73,7 +73,7 @@ public class EnemyBomb : MonoBehaviour
 
                     }
 
-                    GameObject.Instantiate(explosionparticle,transform.position, Quaternion.identity);
+                    //GameObject.Instantiate(explosionparticle,transform.position, Quaternion.identity);
                     Destroy(this.gameObject);
                 }
             }

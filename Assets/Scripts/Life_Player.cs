@@ -9,15 +9,15 @@ public class Life_Player : MonoBehaviour
     public Image vidaSlider;
     void Start()
     {
-        if (DataManager.instance == null)
-        {
-            SceneManager.LoadScene("Menu");
-        }
-        else
-        {
+        //if (DataManager.instance == null)
+        //{
+            //SceneManager.LoadScene("Menu");
+        //}
+        //else
+        //{
 
             vidaSlider.fillAmount = (float)DataManager.vida / DataManager.vidaMaxima;
-        }
+        //}
     }
     public void Dano(int dmg)
     {
