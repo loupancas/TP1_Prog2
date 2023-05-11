@@ -25,7 +25,7 @@ public class McMovement : MonoBehaviour
 
     Vector3 velocity;
 
-    //[SerializeField] private ParticleSystem particulas;
+    [SerializeField] private ParticleSystem particulas;
 
 
     private void Awake()
@@ -61,7 +61,7 @@ public class McMovement : MonoBehaviour
        if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
 
             velocity.y = Mathf.Sqrt(jumpHeight * -1.8f * gravity);
-            //particulas.Play();
+            particulas.Play();
         }
         velocity.y += gravity*Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);

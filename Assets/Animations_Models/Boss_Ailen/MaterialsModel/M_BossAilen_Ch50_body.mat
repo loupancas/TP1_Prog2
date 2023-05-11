@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Boss_Ailen_body1
+  m_Name: M_BossAilen_Ch50_body
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _EMISSION
@@ -23,7 +23,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 95f3798d48360dc4480fa6dddbe33b1c, type: 3}
+        m_Texture: {fileID: 2800000, guid: 871f70be72eaac54f9fbca84b72af48d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -39,11 +39,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 2800000, guid: 0893fe472c9426c4a9780553632643d7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 7e4e30e853b1e714da0cb67775f8e119, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: b5bee3003654c874c9db0d0f43cbb797, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0cb79006da2f9554baf0f6388c55b02e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
