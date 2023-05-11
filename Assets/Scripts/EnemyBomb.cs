@@ -57,10 +57,10 @@ public class EnemyBomb : MonoBehaviour
                         //McMovement player = cols[i].GetComponent<McMovement>();
 
                         //if (player != null)
-                        {
+                        //{
                             //player.TakeDamage(20);
                             
-                        }
+                        //}
 
                         Life_Player player= cols[i].GetComponent<Life_Player>();
                         if (player != null)

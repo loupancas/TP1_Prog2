@@ -104,8 +104,8 @@ public class EnemyAI : MonoBehaviour
             ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
-           
 
+           
           
         }
     }
