@@ -70,19 +70,24 @@ public class PtMovimiento : MonoBehaviour
         isWaiting = false;
     }
 
-    private void OnTriggerExit(Collider other)
+    
+
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            other.transform.parent = null;
+            collision.gameObject.transform.SetParent(transform);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnCollisionExit(Collision collision)
     {
-        if (other.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
-            other.transform.parent = transform;
+            collision.gameObject.transform.SetParent(null);
         }
     }
+
+
 }
