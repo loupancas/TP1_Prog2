@@ -112,24 +112,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 0
-  cron: 0
-  rutina: 0
   agent: {fileID: 2525225954570172478}
-  grado: 0
+  ViewAngle: 90
+  StartTime: 4
+  StartTimeRotate: 2
+  speed: 2
+  radioView: 6
+  distAtack: 1
   distToCheck: 1
   Nods:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  speed: 2
-  radioView: 6
-  distAtack: 1
   animator: {fileID: 5508613282723337071}
   PlayerCape:
     serializedVersion: 2
     m_Bits: 64
-  angle: {x: 0, y: 0, z: 0, w: 0}
 --- !u!195 &2525225954570172478
 NavMeshAgent:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class EnemyAI : MonoBehaviour
     public float health;
     //public Shot shotDamage;
     public Transform spawnPoint;
+    public Animator animator;
 
 
     public Vector3 walkPoint;
@@ -30,6 +31,7 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
     }
 
     private void Update()
@@ -45,10 +47,15 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
+        animator.SetBool("walk", true);
         if (!walkPointSet) SearchWalkPoint();
+        
 
         if (walkPointSet)
             agent.SetDestination(walkPoint);
+            
+        
+
 
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
@@ -66,16 +73,19 @@ public class EnemyAI : MonoBehaviour
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, whatIsGround))
             walkPointSet = true;
+        
     }
 
     private void ChasePlayer()
     {
+        //animator.SetBool("run", true);
         agent.SetDestination(player.position);
+        
     }
 
     private void AttackPlayer()
     {
-   
+        
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -83,6 +93,7 @@ public class EnemyAI : MonoBehaviour
         if (!alreadyAttacked)
         {
             ///Attack code here
+            
             
             newProyectil = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
             newProyectil.GetComponent<Rigidbody>().AddForce(transform.forward * 32f, ForceMode.Impulse);

@@ -90,10 +90,10 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 1.9
-  m_Radius: 0.35
+  m_Radius: 0.53
   m_SlopeLimit: 45
   m_StepOffset: 0
-  m_SkinWidth: 1
+  m_SkinWidth: 0.0001
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
 --- !u!136 &7617756336950757257
@@ -106,10 +106,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.26516414
-  m_Height: 2.1949759
+  m_Radius: 0.33549798
+  m_Height: 1.69
   m_Direction: 1
-  m_Center: {x: 0.0050328374, y: 1.0418553, z: 0.030000001}
+  m_Center: {x: -0.065301, y: 0.935449, z: 0.030000001}
 --- !u!114 &7617756336950757301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,15 +126,15 @@ MonoBehaviour:
   jumpForce: 7
   floor: {fileID: 0}
   controller: {fileID: 4079361110945023815}
-  turnSmoothTime: 0.1
+  turnSmoothTime: 0.5
   cam: {fileID: 0}
   gravity: -9.81
   groundCheck: {fileID: 1677203245315424839}
-  sphereRadius: 0.3
+  sphereRadius: 0
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
-  jumpHeight: 1.5
+    m_Bits: 1536
+  jumpHeight: 2
   particulas: {fileID: 0}
 --- !u!95 &7617756336950757263
 Animator:
@@ -168,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79f5a725dbafb2449a0707ff97480cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustJump: {fileID: 8446416439733324684}
-  inicioParticles: {fileID: 8446416439733324684}
-  medioParticles: {fileID: 8446416439733324684}
-  finParticles: {fileID: 8446416439733324684}
+  dustJump: {fileID: 0}
+  inicioParticles: {fileID: 0}
+  medioParticles: {fileID: 0}
+  finParticles: {fileID: 0}
   jumpForce: 6.5
   onFloor: 1
   jumpsLeft: 2
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustAttack: {fileID: 0}
-  attackRadius: 1.25
+  attackRadius: 0
   attackDamage: 10
   attackLayerMask:
     serializedVersion: 2

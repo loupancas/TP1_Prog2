@@ -71,7 +71,7 @@ public class MoveEnemy : MonoBehaviour
         {
 
 
-            //agent.isStopped = true;    
+            agent.isStopped = true;    
             transform.LookAt(GameManager.instance.player.transform.position);
 
             animator.SetBool("run", true);
@@ -79,7 +79,19 @@ public class MoveEnemy : MonoBehaviour
 
 
         }
+        else 
+        {
+            agent.isStopped = false;  
+            Patrolling();
+        
+        }
 
+       
+
+
+    }
+    public void Patrolling() 
+    {
         animator.SetBool("walk", true);
         var disToWaypoint = Vector3.Distance(Nods[CurrentNodsIndex].position, transform.position);
 
@@ -93,7 +105,6 @@ public class MoveEnemy : MonoBehaviour
 
 
         }
-
 
     }
     private void OnDrawGizmos()
