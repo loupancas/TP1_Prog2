@@ -14,52 +14,100 @@ public class Campo_de_vision : MonoBehaviour
 
     public bool ver_Player;
 
+    Renderer render;
+
     public void Start()
     {
+        render = GetComponent<Renderer>();
+        render.material.color = Color.green;
         Referencia = GameObject.FindGameObjectWithTag("Player"); // Encontrar jugador
-        StartCoroutine(Campo_de_vision_Rutina()); // Iniciar Rutina
+        //StartCoroutine(Campo_de_vision_Rutina()); // Iniciar Rutina
     }
 
-    private IEnumerator Campo_de_vision_Rutina()
-    {
-        float retraso = 0.2f;
-        WaitForSeconds espera = new WaitForSeconds(retraso);
+    //private IEnumerator Campo_de_vision_Rutina()
+    //{
+    //    //float retraso = 0.2f;
+    //    //WaitForSeconds espera = new WaitForSeconds(retraso);
 
-        while (true)
+    //    //while (true)
+    //    //{
+    //    //    yield return espera;
+    //    //    Campo_de_visionChequeo();
+    //    //}
+    //}
+    float timer;
+    public float cddamage;
+    private void Update()
+    {
+        if (timer < cddamage)
         {
-            yield return espera;
-            Campo_de_visionChequeo();
+            timer = timer + 1 * Time.deltaTime;
+        }
+        else
+        {
+            timer = 0;
+            Life_Player player;
+            if (Campo_de_visionChequeo(out player))
+            {
+                player.Dano(5);
+            }
         }
     }
 
-    private void Campo_de_visionChequeo()
+    private bool Campo_de_visionChequeo(out Life_Player lifePlayer)
     {
         Collider[] chequeo_rango = Physics.OverlapSphere(transform.position, radio, PlayerMask); //buscar los objetos en esa capa
 
         if (chequeo_rango.Length != 0) // Encuentra algo en esa capa
         {
-            Transform objetivo = chequeo_rango[0].transform;
-            Vector3 direccion_objetivo = (objetivo.position - transform.position).normalized;
+            bool found = false;
+            Life_Player life = null;
+            lifePlayer = null;
+            for (int i = 0; i < chequeo_rango.Length; i++)
+            {
+                Life_Player obj = chequeo_rango[i].transform.gameObject.GetComponent<Life_Player>();
+                if (obj != null)
+                {
+                    lifePlayer = obj;
+                    found = true;
+                    life = obj;
+                    break;
+                }
+            }
+            if (!found) return false;
+
+            Vector3 direccion_objetivo = (life.gameObject.transform.position - transform.position).normalized;
 
             if (Vector3.Angle(transform.forward, direccion_objetivo) < angulo / 2)
             {
-                float distancia_objetivo = Vector3.Distance(transform.position, objetivo.position);
+                float distancia_objetivo = Vector3.Distance(transform.position, life.gameObject.transform.position);
 
-                if (Physics.Raycast(transform.position, direccion_objetivo, distancia_objetivo, ObstruccionMask))
+                if (distancia_objetivo < radio)
                 {
-                    ver_Player = true;
+                    render.material.color = Color.red;
+                    return true;
                 }
                 else
                 {
-                    ver_Player = false;
+                    render.material.color = Color.green;
+                    return false;
                 }
             }
-            else ver_Player = false;
+            else
+            { 
+                
+                render.material.color = Color.green;
+                return false;
+            }
         }
-        else if (ver_Player) // si pierde la vision del player
-        {
-            ver_Player = false;
-        }
-            
+        render.material.color = Color.green;
+        lifePlayer = null;
+        return false;  
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, radio);
+
     }
 }
