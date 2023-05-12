@@ -19,10 +19,10 @@ public class LifeSensor : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Projectile MyProjectile = other.gameObject.GetComponent<Projectile>();
+       //Projectile MyProjectile = other.gameObject.GetComponent<Projectile>();
         MoveEnemy MyEnemyDamage = other.gameObject.GetComponent<MoveEnemy>();
         Item_Life Myitem_Life = other.gameObject.GetComponent<Item_Life>();
-        
+
 
         //if (MyProjectile)
         //{

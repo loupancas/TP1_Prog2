@@ -119,6 +119,12 @@ public class MoveEnemy : MonoBehaviour
         animator.SetBool("walk", true);
 
     }
+    //void Atack() 
+    //{ 
+    
+    
+    
+    //}
    
 
 

@@ -73,6 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7018267407606136794}
+  - component: {fileID: 6257189789976452689}
   - component: {fileID: 5449345154503018251}
   - component: {fileID: 2525225954570172478}
   - component: {fileID: 5504914362290415200}
@@ -99,6 +100,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 189, z: 0}
+--- !u!114 &6257189789976452689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7018267407606136774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e1869fdbeb02264ea3ac8efe3354443, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthbarsprite: {fileID: 0}
+  maxHealthPoint: 60
+  puedeEliminarse: 1
+  danoCritico: 0
+  cambiarColor: {r: 1, g: 0, b: 0, a: 1}
+  colorInicial: {r: 1, g: 1, b: 1, a: 1}
+  rend: {fileID: 5832254175349644092}
+  recibeDano: 0
+  time_duration: 1
 --- !u!114 &5449345154503018251
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447dcd8eaf307f042a26103d3e71ecdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
+  damage: 40
   agent: {fileID: 2525225954570172478}
   ViewAngle: 90
   StartTime: 4
@@ -238,5 +260,10 @@ Transform:
 --- !u!95 &5508613282723337071 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
+  m_PrefabInstance: {fileID: 2096446730843827966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &5832254175349644092 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 5613815499662603714, guid: aa2015e9f0d3ca44396e707f9f741fcc, type: 3}
   m_PrefabInstance: {fileID: 2096446730843827966}
   m_PrefabAsset: {fileID: 0}
