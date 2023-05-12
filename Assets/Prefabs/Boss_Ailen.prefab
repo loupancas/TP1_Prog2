@@ -92,12 +92,11 @@ MonoBehaviour:
     m_Bits: 64
   health: 150
   spawnPoint: {fileID: 3095631231980762701}
-  animator: {fileID: 0}
+  animator: {fileID: 8981771575605134331}
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 50
   timeBetweenAttacks: 1
-  projectile: {fileID: 7845721123766715590, guid: 2b426a1a4d65fe1478b9591e8b44c695, type: 3}
-  newProyectil: {fileID: 0}
+  projectile: {fileID: -2993045186655893609, guid: 79a5f8c0947e5c340b87c1dd76c6645d, type: 3}
   sightRange: 10
   attackRange: 5
   playerInSightRange: 0

@@ -21,8 +21,7 @@ public class EnemyAI : MonoBehaviour
    
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
-    public GameObject newProyectil;
+    public BulletEnemy projectile;
  
     public float sightRange, attackRange;
     public bool playerInSightRange, playerInAttackRange;
@@ -95,12 +94,9 @@ public class EnemyAI : MonoBehaviour
             ///Attack code here
             
             
-            newProyectil = Instantiate(projectile, spawnPoint.position, spawnPoint.rotation);
-            newProyectil.GetComponent<Rigidbody>().AddForce(transform.forward * 32f, ForceMode.Impulse);
-            newProyectil.GetComponent<Rigidbody>().AddForce(transform.up * 8f, ForceMode.Impulse);
-           /* Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 8f, ForceMode.Impulse);*/
+            BulletEnemy obj = GameObject.Instantiate(projectile);
+            obj.Move(spawnPoint.position, spawnPoint.forward, 1f, 30f);
+
             ///End of attack code
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
@@ -112,8 +108,6 @@ public class EnemyAI : MonoBehaviour
     private void ResetAttack()
     {
         alreadyAttacked = false;
-        Destroy(newProyectil);
-       
     }
 
     public void TakeDamage(int damage)

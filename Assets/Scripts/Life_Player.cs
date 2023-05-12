@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Life_Player : MonoBehaviour
 {
     public Image vidaSlider;
+    public Transform parent;
     void Start()
     {
         //if (DataManager.instance == null)
@@ -26,6 +27,7 @@ public class Life_Player : MonoBehaviour
 
         
         vidaSlider.fillAmount = (float)DataManager.vida / DataManager.vidaMaxima;
+        Debug.Log((float)DataManager.vida / DataManager.vidaMaxima);
         Debug.Log("Tu vida es " + DataManager.vida);
 
         if (DataManager.vida < 25)

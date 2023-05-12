@@ -34,24 +34,25 @@ public class MovementPlatform : MonoBehaviour
 
     }
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Life_Player player = other.GetComponent<Life_Player>();
+        if (player != null)
         {
-            collision.gameObject.transform.SetParent(transform);
+            var controller = player.parent.GetComponent<CharacterController>();
+            controller.transform.position = this.transform.position;
+ 
+            Transform trans = player.parent;
+            trans.SetParent(transform);
         }
     }
-
-
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        Life_Player player = other.GetComponent<Life_Player>();
+        if (player != null)
         {
-            collision.gameObject.transform.SetParent(null);
+            Transform trans = player.parent;
+            trans.SetParent(null);
         }
     }
-
-
-
 }
