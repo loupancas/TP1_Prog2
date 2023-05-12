@@ -9,10 +9,10 @@ public class LifeEnemy : MonoBehaviour
     
     
     [SerializeField] private Image healthbarsprite;
-    private float healthPoint;
+    public float healthPoint;
     [SerializeField] private float maxHealthPoint;
     public bool puedeEliminarse;
-    public float danoCritico;// se personaliza el dano critico según la vida total del enemigo
+    public float danoCritico;// se personaliza el dano critico segï¿½n la vida total del enemigo
     [SerializeField] private Color cambiarColor = Color.red;
     [SerializeField] private Color colorInicial = Color.white;
     public Renderer rend;
@@ -73,7 +73,7 @@ public class LifeEnemy : MonoBehaviour
     }
 
 
-    public void golpe(int damageRecibido) // en cada golpe se irá perdiendo vida hasta que finalmente el enemigo se destruye , esto es una funcion publica
+    public void golpe(int damageRecibido) // en cada golpe se irï¿½ perdiendo vida hasta que finalmente el enemigo se destruye , esto es una funcion publica
     {
 
 

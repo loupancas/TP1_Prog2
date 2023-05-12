@@ -17,7 +17,7 @@ public class EnemyAI : MonoBehaviour
     public Vector3 walkPoint;
     bool walkPointSet;
     public float walkPointRange;
-
+    [SerializeField] public LifeEnemy lifetaken;
    
     public float timeBetweenAttacks;
     bool alreadyAttacked;
@@ -77,7 +77,8 @@ public class EnemyAI : MonoBehaviour
 
     private void ChasePlayer()
     {
-        //animator.SetBool("run", true);
+        animator.SetBool("run", true);
+        animator.SetBool("walk", false);
         agent.SetDestination(player.position);
         
     }
@@ -85,6 +86,9 @@ public class EnemyAI : MonoBehaviour
     private void AttackPlayer()
     {
         
+        animator.SetBool("walk", false);
+        animator.SetBool("run", false);
+
         agent.SetDestination(transform.position);
 
         transform.LookAt(player);
@@ -112,9 +116,9 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        health -= damage;
+        lifetaken.healthPoint -= damage;
 
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+        if (lifetaken.healthPoint <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
 
     }
     private void DestroyEnemy()
@@ -129,9 +133,9 @@ public class EnemyAI : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
-   /* void OnCollisionEnter(Collision col){
+    void OnCollisionEnter(Collision col){
             if(col.gameObject.CompareTag("bullet")){
-             TakeDamage(shotDamage.BulletDamage);
+             TakeDamage(25);
             }
-        }*/
+        }
 }
