@@ -1,40 +1,37 @@
 fileFormatVersion: 2
-guid: ce91e7fbc57e5cc419a725d5a9d8611e
+guid: a32465c555ae433428ca9d3333a04dac
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
-  - first:
-      74: 3201678824219569772
-    second: Enemy_Life
+    second: Enemy_Life_T
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Nightshade_MAT
-    second: {fileID: 2100000, guid: 25ba36b8f38e6364c9252a530a0c16b2, type: 2}
+    second: {fileID: 2100000, guid: 54eac205a442def4b9f27f7ddbb4be81, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_diffuse
-    second: {fileID: 2800000, guid: 68fd2775243a12a48a63ad16f4a00758, type: 3}
+    second: {fileID: 2800000, guid: 7086f7e7ebd07d543bc3ed4df429935d, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_glow
-    second: {fileID: 2800000, guid: 0b00649377b73514b9919ac0b5b31c51, type: 3}
+    second: {fileID: 2800000, guid: 035ffb3f5c50c094593243aca488d2b9, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_normal
-    second: {fileID: 2800000, guid: 6e87ed44c9a5bc441a6350427a3a4589, type: 3}
+    second: {fileID: 2800000, guid: 321899a460d890543b4bec8b7379a4a6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Nightshade_specular
-    second: {fileID: 2800000, guid: 936df45cff24c184aa51f464d159d068, type: 3}
+    second: {fileID: 2800000, guid: 1b9b23e9a65aff94a8e6c1cab54f955f, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -64,11 +61,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Enemy_Life
+      name: Enemy_Life_T
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 17
+      lastFrame: 1
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -157,7 +154,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0

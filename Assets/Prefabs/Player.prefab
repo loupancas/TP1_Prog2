@@ -270,9 +270,6 @@ GameObject:
   - component: {fileID: 7617756336950757257}
   - component: {fileID: 7617756336950757301}
   - component: {fileID: 7617756336950757263}
-  - component: {fileID: 7617756336950757258}
-  - component: {fileID: 7617756336950757259}
-  - component: {fileID: 7617756336950757300}
   - component: {fileID: 7617756336950757303}
   - component: {fileID: 4070027699232750732}
   - component: {fileID: 2333566820778657522}
@@ -381,57 +378,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7617756336950757258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617756336950757250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79f5a725dbafb2449a0707ff97480cb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustJump: {fileID: 0}
-  inicioParticles: {fileID: 0}
-  medioParticles: {fileID: 0}
-  finParticles: {fileID: 0}
-  jumpForce: 6.5
-  onFloor: 1
-  jumpsLeft: 2
---- !u!114 &7617756336950757259
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617756336950757250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5217fa8a464ab4141899f449cf0ba384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glidy: {fileID: 7617756336950757303}
-  forwardSpeed: 5
-  descentSpeed: 2
-  glideDuration: 1.5
-  glideGravity: 2
---- !u!114 &7617756336950757300
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617756336950757250}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be6e01ff041e4c04db8fa696a4e1eb09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dustJump: {fileID: 0}
-  jumpForce: 5
-  onFloor: 1
 --- !u!96 &7617756336950757303
 TrailRenderer:
   serializedVersion: 2

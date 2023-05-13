@@ -1,37 +1,37 @@
 fileFormatVersion: 2
-guid: 2cfcda7a6fc57ee489f82fc1ee5dfa21
+guid: 3574bcd3baef3c74cb9e963f133b7614
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: NPC_T
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong1
-    second: {fileID: 2100000, guid: e9ecc1dc9cfe75a4388f0217a9b83f54, type: 2}
+    second: {fileID: 2100000, guid: 3200edd8cd9300949bbf7218b73f5487, type: 2}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ch34_1001_Diffuse
-    second: {fileID: 2800000, guid: db1a9e10c37d8ab47b4fb4888a3f85ff, type: 3}
+    second: {fileID: 2800000, guid: 8ed0fb88718f05d4595d0f194f8cc6bf, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ch34_1001_Glossiness
-    second: {fileID: 2800000, guid: 0f5765639cadb6f42bdfd8b65877217a, type: 3}
+    second: {fileID: 2800000, guid: da39a45d3f297b5498396e2be22985d6, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ch34_1001_Normal
-    second: {fileID: 2800000, guid: e4bbb160e01d97a4cbdf46f83ee74fb1, type: 3}
+    second: {fileID: 2800000, guid: a50016d71344d114c815ad9324e652bf, type: 3}
   - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Ch34_1001_Specular
-    second: {fileID: 2800000, guid: 1a7888da9b946654a848e2bc3f8a7b60, type: 3}
+    second: {fileID: 2800000, guid: ce5ac05f89b1d1a4196b0afba05d809d, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -59,7 +59,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: NPC_T
+      takeName: mixamo.com
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -125,7 +154,7 @@ ModelImporter:
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 2
   humanoidOversampling: 1
-  avatarSetup: 0
+  avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1
   remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
