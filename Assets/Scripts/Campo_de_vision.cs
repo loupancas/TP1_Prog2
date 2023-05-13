@@ -7,6 +7,9 @@ public class Campo_de_vision : MonoBehaviour
     public float radio; [Range(0,360)] // limitar el rango del enemigo
     public float angulo;
 
+
+    [SerializeField] public LifeEnemy lifetaken;
+
     public GameObject Referencia;
 
     public LayerMask PlayerMask;
@@ -110,4 +113,27 @@ public class Campo_de_vision : MonoBehaviour
         Gizmos.DrawWireSphere(transform.position, radio);
 
     }
+
+
+    public void TakeDamage(int damage)
+    {
+        lifetaken.healthPoint -= damage;
+
+        if (lifetaken.healthPoint <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+
+    }
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("bullet"))
+        {
+            TakeDamage(25);
+        }
+    }
+
+
 }

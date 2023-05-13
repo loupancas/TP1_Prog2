@@ -15,7 +15,8 @@ public class EnemyBomb : MonoBehaviour
     public float waveExplosionDist = 7f;
 
     //public ParticleSystem explosionparticle;
-    
+    [SerializeField] public LifeEnemy lifetaken;
+
 
     bool jumping = false;
     Rigidbody myRig;
@@ -104,6 +105,26 @@ public class EnemyBomb : MonoBehaviour
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, waveExplosionDist);
 
+    }
+
+    public void TakeDamage(int damage)
+    {
+        lifetaken.healthPoint -= damage;
+
+        if (lifetaken.healthPoint <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+
+    }
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("bullet"))
+        {
+            TakeDamage(25);
+        }
     }
 
 

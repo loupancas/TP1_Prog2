@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class MoveEnemy : MonoBehaviour
 {
-
+    [SerializeField] public LifeEnemy lifetaken; // llama a vida
     public int damage;
     int CurrentNodsIndex;
     public NavMeshAgent agent;
@@ -121,11 +121,31 @@ public class MoveEnemy : MonoBehaviour
     }
     //void Atack() 
     //{ 
-    
-    
-    
+
+
+
     //}
-   
+
+    public void TakeDamage(int damage) //llama a la funcion para que reciba daño
+    {
+        lifetaken.healthPoint -= damage;
+
+        if (lifetaken.healthPoint <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
+
+    }
+    private void DestroyEnemy()
+    {
+        Destroy(gameObject);
+    }
+
+    void OnCollisionEnter(Collision col)
+    {
+        if (col.gameObject.CompareTag("bullet"))
+        {
+            TakeDamage(25);
+        }
+
+    }
 
 
 }
