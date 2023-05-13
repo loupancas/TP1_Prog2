@@ -24,4 +24,19 @@ public class Charview : MonoBehaviour
     {
         myAnim.SetFloat("Vertical", vert);
     }
+
+
+    public void Grab()
+    {
+        myAnim.SetTrigger("Grab");
+    }
+    public void Jump()
+    {
+        myAnim.SetTrigger("Jump");
+    }
+
+
+
+
+
 }

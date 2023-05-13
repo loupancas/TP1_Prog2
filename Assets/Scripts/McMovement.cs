@@ -62,6 +62,7 @@ public class McMovement : MonoBehaviour
 
             velocity.y = Mathf.Sqrt(jumpHeight * -1.8f * gravity);
             //particulas.Play();
+            view.Jump();
         }
         velocity.y += gravity*Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);
@@ -80,6 +81,9 @@ public class McMovement : MonoBehaviour
         view.horizontal(Input.GetAxis("Horizontal"));
         view.vertical(Input.GetAxis("Vertical"));
 
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            view.Grab();
+        }
     }
 }
