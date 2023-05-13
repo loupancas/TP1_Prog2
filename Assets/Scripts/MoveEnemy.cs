@@ -28,9 +28,9 @@ public class MoveEnemy : MonoBehaviour
 
     Vector3 PlayerLastPosition = Vector3.zero;
     Vector3 PlayerPosition;
-    
+
     //bool IsPatrol;
-    bool PlayerDetection;
+      bool PlayerDetection;
     //bool PlayerNear;
     //bool PlayerInRange;
     //bool CaughtPlayer;
@@ -76,6 +76,15 @@ public class MoveEnemy : MonoBehaviour
 
             animator.SetBool("run", true);
             transform.position = Vector3.MoveTowards(transform.position, GameManager.instance.player.transform.position, speed * Time.deltaTime);
+            
+
+            if (Vector3.Distance(transform.position, GameManager.instance.player.transform.position) <= distAtack)
+            {
+                agent.isStopped = true;
+                animator.SetBool ("run", false);
+                atack();
+
+            }
 
 
         }
@@ -119,12 +128,21 @@ public class MoveEnemy : MonoBehaviour
         animator.SetBool("walk", true);
 
     }
-    //void Atack() 
-    //{ 
-
-
-
-    //}
+   public void atack() 
+   {
+        animator.SetTrigger("atack");
+        
+    
+   }
+    void OnTriggerEnter(Collider atack)
+    {
+        if (atack.gameObject.CompareTag("atack")) 
+        {
+            Debug.Log("atacando");
+            TakeDamage(30);
+        }
+        
+    }
 
     public void TakeDamage(int damage) //llama a la funcion para que reciba daño
     {
@@ -144,6 +162,8 @@ public class MoveEnemy : MonoBehaviour
         {
             TakeDamage(25);
         }
+       
+
 
     }
 
