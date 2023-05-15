@@ -46,6 +46,7 @@ public class EnemyAI : MonoBehaviour
 
     private void Patroling()
     {
+        animator.SetBool("run", false);
         animator.SetBool("walk", true);
         if (!walkPointSet) SearchWalkPoint();
         

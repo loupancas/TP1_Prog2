@@ -10,11 +10,11 @@ public class MoveEnemy : MonoBehaviour
     int CurrentNodsIndex;
     public NavMeshAgent agent;
    
-    private Transform ActualWaypoint;
+    //private Transform ActualWaypoint;
     
-    public float ViewAngle = 90;
-    public float StartTime = 4;
-    public float StartTimeRotate = 2; 
+    //public float ViewAngle = 90;
+    //public float StartTime = 4;
+    //public float StartTimeRotate = 2; 
     public float speed;
     public float radioView;
     public float distAtack;
