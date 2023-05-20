@@ -266,12 +266,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7617756336950757261}
+  - component: {fileID: 7617756336950757301}
+  - component: {fileID: 4070027699232750732}
   - component: {fileID: 4079361110945023815}
   - component: {fileID: 7617756336950757257}
-  - component: {fileID: 7617756336950757301}
   - component: {fileID: 7617756336950757263}
   - component: {fileID: 7617756336950757303}
-  - component: {fileID: 4070027699232750732}
   - component: {fileID: 2333566820778657522}
   - component: {fileID: 7066612411241866830}
   m_Layer: 6
@@ -302,6 +302,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7617756336950757301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617756336950757250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09d25d12abf64e04f929cc28557b5d46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 5
+  controller: {fileID: 4079361110945023815}
+  turnSmoothTime: 0.1
+  cam: {fileID: 0}
+  gravity: -9.81
+  groundCheck: {fileID: 1677203245315424839}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 1536
+  sphereRadius: 0.3
+  timer: 0.8
+  jumpPower: 12
+  gravityMultiplier: 3
+--- !u!114 &4070027699232750732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617756336950757250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1771322998bef624684ce322574aea05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movement: {fileID: 7617756336950757301}
 --- !u!143 &4079361110945023815
 CharacterController:
   m_ObjectHideFlags: 0
@@ -330,35 +368,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.33549798
-  m_Height: 1.69
+  m_Radius: 0.40032917
+  m_Height: 1.7925142
   m_Direction: 1
-  m_Center: {x: -0.065301, y: 0.935449, z: 0.030000001}
---- !u!114 &7617756336950757301
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617756336950757250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09d25d12abf64e04f929cc28557b5d46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpForce: 7
-  floor: {fileID: 0}
-  controller: {fileID: 4079361110945023815}
-  turnSmoothTime: 0.5
-  cam: {fileID: 0}
-  gravity: -9.81
-  groundCheck: {fileID: 1677203245315424839}
-  sphereRadius: 0
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 1536
-  jumpHeight: 2
+  m_Center: {x: -0.0004698038, y: 0.88419193, z: 0.030000001}
 --- !u!95 &7617756336950757263
 Animator:
   serializedVersion: 4
@@ -487,19 +500,6 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
---- !u!114 &4070027699232750732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7617756336950757250}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1771322998bef624684ce322574aea05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movement: {fileID: 7617756336950757301}
 --- !u!114 &2333566820778657522
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -583,7 +583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7625122158401487001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.012, y: 0.002, z: 0.0011944771}
+  m_LocalPosition: {x: 0.033, y: 0.002, z: 0.0011944771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
