@@ -54,8 +54,15 @@ public class McMovement : MonoBehaviour
         ApplyGravity();
         ApplyRotation();
         ApplyMovement();
-     
-      
+
+        if (Input.GetKeyDown(KeyCode.Q)) // animacion agarrar objetos
+        {
+            view.Grab();
+        }
+
+        view.horizontal(Input.GetAxis("Horizontal"));//animacion movimiento
+        view.vertical(Input.GetAxis("Vertical"));//animacion movimiento
+
     }
 
     private void ApplyGravity(){
@@ -103,8 +110,8 @@ public class McMovement : MonoBehaviour
         
         _input = context.ReadValue<Vector2>();
         movement = new Vector3(_input.x, 0f, _input.y).normalized;
-
-   }
+        
+    }
    
     public void Jump(InputAction.CallbackContext context)
     {    
