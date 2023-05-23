@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 2792849443059641683}
   - component: {fileID: 2398317126933211636}
   - component: {fileID: 2398317126933211638}
+  - component: {fileID: 6595395016572994959}
   - component: {fileID: 2398317126933211639}
   - component: {fileID: 2398317126933211633}
   - component: {fileID: 3281401648597432302}
@@ -198,6 +199,48 @@ CapsuleCollider:
   m_Height: 2.3189576
   m_Direction: 1
   m_Center: {x: -0, y: 0.6594788, z: 0}
+--- !u!114 &6595395016572994959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3281401648597432297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22fc73eede878a441a028f59f55be9b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Mouse, Assembly-CSharp
+        m_MethodName: Showmouse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: Mouse, Assembly-CSharp
+        m_MethodName: Hidemouse
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!135 &2398317126933211639
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -206,7 +249,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3281401648597432297}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 1.8503606

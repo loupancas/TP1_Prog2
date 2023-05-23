@@ -38,9 +38,8 @@ public class McMovement : MonoBehaviour
     {
         view = GetComponent<Charview>();
         controller = GetComponent<CharacterController>();
+ 
     }
-
-
 
     void Start(){
 
