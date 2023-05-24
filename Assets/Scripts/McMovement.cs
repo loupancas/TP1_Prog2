@@ -108,8 +108,8 @@ public class McMovement : MonoBehaviour
    
     public void Jump(InputAction.CallbackContext context)
     {    
-        
-        jumpPower=10;
+        jumping = true;
+        jumpPower=13;
         if (!context.started) return;
         if (!isGrounded) return;
       if(jumping) {
