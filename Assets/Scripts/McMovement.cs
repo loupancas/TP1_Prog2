@@ -31,7 +31,7 @@ public class McMovement : MonoBehaviour
     Vector3 velocity;
      [SerializeField] private float jumpPower= 15f;
     [SerializeField] private float gravityMultiplier = 3f;
-    //[SerializeField] private ParticleSystem particulas;
+    [SerializeField] private ParticleSystem particulas;
 
 
     private void Awake()
@@ -90,20 +90,14 @@ public class McMovement : MonoBehaviour
         }
         
 
-        //view.horizontal(Input.GetAxis("Horizontal"));
-      //  view.vertical(Input.GetAxis("Vertical"));
-
-      /*  if (Input.GetKeyDown(KeyCode.Q))
-        {
-            view.Grab();
-        }*/
+        
    }
 
    private void ApplyMovement(){
     
     transform.Translate(movement * moveSpeed * Time.deltaTime);
-
-   }
+        
+    }
 
    public void Move(InputAction.CallbackContext context){
         
@@ -119,7 +113,9 @@ public class McMovement : MonoBehaviour
         if (!context.started) return;
         if (!isGrounded) return;
       if(jumping) {
-        view.Jump();
+            particulas.Play(); //particulas
+            view.Jump();
+       
         StartCoroutine("Wait");
       }
 
