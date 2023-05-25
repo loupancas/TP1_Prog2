@@ -6,24 +6,24 @@ public class Campo_de_vision_editor : Editor
 {
     private void OnSceneGUI()
     {
-    //    Campo_de_vision CDV = (Campo_de_vision)target; // configurar la vision
-    //    Handles.color = Color.black; // color del rango
-    //    Handles.DrawWireArc(CDV.transform.position, Vector3.up, Vector3.forward, 360, CDV.radio); // dibuja el cono de vision
+        Campo_de_vision CDV = (Campo_de_vision)target; // configurar la vision
+        Handles.color = Color.black; // color del rango
+        Handles.DrawWireArc(CDV.transform.position, Vector3.up, Vector3.forward, 360, CDV.radio); // dibuja el cono de vision
 
-    //    //
-    //    Vector3 vista_angulo01 = direccion_angulo(CDV.transform.eulerAngles.y, -CDV.angulo / 2);
-    //    Vector3 vista_angulo02 = direccion_angulo(CDV.transform.eulerAngles.y,  CDV.angulo / 2);
+        //
+        Vector3 vista_angulo01 = direccion_angulo(CDV.transform.eulerAngles.y, -CDV.angulo / 2);
+        Vector3 vista_angulo02 = direccion_angulo(CDV.transform.eulerAngles.y,  CDV.angulo / 2);
 
-    //    Handles.color = Color.black; // color del los angulos (rango de los costados)
-    //    Handles.DrawLine(CDV.transform.position, CDV.transform.position + vista_angulo01 * CDV.radio);
-    //    Handles.DrawLine(CDV.transform.position, CDV.transform.position + vista_angulo02 * CDV.radio);
+        Handles.color = Color.black; // color del los angulos (rango de los costados)
+        Handles.DrawLine(CDV.transform.position, CDV.transform.position + vista_angulo01 * CDV.radio);
+        Handles.DrawLine(CDV.transform.position, CDV.transform.position + vista_angulo02 * CDV.radio);
 
-    //    //si puede ver al jugador
-    //    if (CDV.ver_Player)
-    //    {
-    //        Handles.color = Color.red;
-    //        Handles.DrawLine(CDV.transform.position, CDV.Referencia.transform.position);
-    //    }
+        //si puede ver al jugador
+        if (CDV.ver_Player)
+        {
+            Handles.color = Color.red;
+            Handles.DrawLine(CDV.transform.position, CDV.Referencia.transform.position);
+        }
         
     }
 

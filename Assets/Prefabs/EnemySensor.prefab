@@ -373,7 +373,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radio: 4
   angulo: 69
-  lifetaken: {fileID: 8042763419711495838}
   Referencia: {fileID: 0}
   PlayerMask:
     serializedVersion: 2
@@ -381,6 +380,7 @@ MonoBehaviour:
   ObstruccionMask:
     serializedVersion: 2
     m_Bits: 512
+  light: {fileID: 0}
   ver_Player: 1
   cddamage: 1
 --- !u!114 &8042763419711495838
@@ -630,6 +630,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a32465c555ae433428ca9d3333a04dac, type: 3}
       propertyPath: m_Name
       value: Enemy_Life
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: a32465c555ae433428ca9d3333a04dac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: a32465c555ae433428ca9d3333a04dac, type: 3}
       propertyPath: m_Controller
