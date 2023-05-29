@@ -22,17 +22,17 @@ public class McMovement : MonoBehaviour
       public float sphereRadius=0.3f;
    private float _currentVelocity;
    private Vector3 moveDir;
-   public float timer=0.8f;
-  private bool jumping=true;
+   public float timer=0.7f;
+  //private bool jumping=true;
    
    // public float jumpHeight = 1.5f;
     Charview view;
     private Vector3 movement;
-    Vector3 velocity;
-     [SerializeField] private float jumpPower= 15f;
-    [SerializeField] private float gravityMultiplier = 3f;
+   public Vector3 velocity;
+     //[SerializeField] private float jumpPower= 15f;
+    [SerializeField] private float gravityMultiplier = 9f;
     [SerializeField] private ParticleSystem particulas;
-
+  
 
     private void Awake()
     {
@@ -106,17 +106,17 @@ public class McMovement : MonoBehaviour
         
     }
    
-    public void Jump(InputAction.CallbackContext context)
+  /*  public void Jump(InputAction.CallbackContext context)
     {    
-        jumping = true;
+      jumping = true;
         jumpPower=13;
         if (!context.started) return;
         if (!isGrounded) return;
       if(jumping) {
-            particulas.Play(); //particulas
+            particulas.Play(); particulas
             view.Jump();
-       
-        StartCoroutine("Wait");
+             velocity.y += jumpPower;
+       StartCoroutine("Wait");
       }
 
            
@@ -133,7 +133,7 @@ public class McMovement : MonoBehaviour
         yield return new WaitForSeconds (timer);
           jumping=true;
                  
-    }
+    }*/
 
         
 }

@@ -9,7 +9,7 @@ public class McSalto : MonoBehaviour
     public ParticleSystem medioParticles;
     public ParticleSystem finParticles;
     private Transform playerTransform;
-
+    public McMovement gravityChange;
     Rigidbody myRig;
     public float jumpForce = 5;
     public bool onFloor = true;
@@ -30,7 +30,7 @@ public class McSalto : MonoBehaviour
             if (onFloor)
             {
                 myRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-                
+                gravityChange.velocity.y += 15f;
                 jumpsLeft = 2;
                 inicioParticles.transform.position = playerTransform.position;
                 inicioParticles.Play();
@@ -40,6 +40,7 @@ public class McSalto : MonoBehaviour
             {
                 myRig.velocity = new Vector3(myRig.velocity.x, 0f, myRig.velocity.z);
                 myRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                 gravityChange.velocity.y += 15f;
                 jumpsLeft--;
                 medioParticles.transform.position = playerTransform.position;
                 medioParticles.Play();
@@ -49,6 +50,7 @@ public class McSalto : MonoBehaviour
             {
                 myRig.velocity = new Vector3(myRig.velocity.x, 0f, myRig.velocity.z);
                 myRig.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                 gravityChange.velocity.y += 15f;
                 jumpsLeft--;
                 finParticles.transform.position = playerTransform.position;
                 finParticles.Play();

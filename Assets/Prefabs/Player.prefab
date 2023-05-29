@@ -5073,6 +5073,7 @@ GameObject:
   - component: {fileID: 7617756336950757301}
   - component: {fileID: 4070027699232750732}
   - component: {fileID: 2333566820778657522}
+  - component: {fileID: 1592467461734353619}
   - component: {fileID: 4079361110945023815}
   - component: {fileID: 7617756336950757257}
   - component: {fileID: 7617756336950757263}
@@ -5142,7 +5143,7 @@ MonoBehaviour:
     m_Bits: 1536
   sphereRadius: 0.3
   timer: 0.8
-  jumpPower: 12
+  velocity: {x: 0, y: 0, z: 0}
   gravityMultiplier: 3
   particulas: {fileID: 7126732962795158195}
 --- !u!114 &4070027699232750732
@@ -5170,6 +5171,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e64f64380235304b828c33f1973aa1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1592467461734353619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7617756336950757250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f5a725dbafb2449a0707ff97480cb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dustJump: {fileID: 7126732962795158195}
+  inicioParticles: {fileID: 8446416439733324684}
+  medioParticles: {fileID: 0}
+  finParticles: {fileID: 0}
+  gravityChange: {fileID: 7617756336950757301}
+  jumpForce: 5
+  onFloor: 1
+  jumpsLeft: 2
 --- !u!143 &4079361110945023815
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5199,9 +5220,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.40032917
-  m_Height: 1.7925142
+  m_Height: 1.9376869
   m_Direction: 1
-  m_Center: {x: -0.0004698038, y: 0.88419193, z: 0.030000001}
+  m_Center: {x: -0.0004698038, y: 0.94034314, z: 0.030000001}
 --- !u!95 &7617756336950757263
 Animator:
   serializedVersion: 4
@@ -5401,7 +5422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7625122158401487001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.033, y: 0.002, z: 0.0011944771}
+  m_LocalPosition: {x: -0.011, y: 0.002, z: 0.0011944771}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
